@@ -4,41 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lady Diane Casilang | Portfolio</title>
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* General Styles */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-image: url('images/devcon_background.png');
             background-repeat: no-repeat;
             background-position: left;
             background-size: cover;
             color: white;
             position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;    
+            overflow-x: hidden;
             min-height: 100vh;      
         }
 
-        /* Make the content properly aligned */
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: flex-start; 
-            max-height: 100vh; 
-            overflow-y: auto; 
-            width: 100%;
-            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
             box-sizing: border-box;
-            text-align: left;
         }
 
+        .header-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;  
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }    
 
         .profile-pic {
             width: 250px;
@@ -46,76 +48,120 @@
             border-radius: 50%;
             background-color: lightgray;
             background-size: cover;
-            background-position: left;
-            margin-bottom: 20px;
+            background-position: center;
             box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7), 
                         0 0 30px 10px rgba(0, 191, 255, 0.5);
             transition: box-shadow 0.3s ease-in-out;
-            margin-top: 25px;
+            margin-bottom: 20px;
         }
 
-        /* Header Layout */
-        .header {
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
             display: flex;
-            align-items: left;
-            gap: 20px; 
-            flex-wrap: wrap;
-            justify-content: left; 
+            flex-direction: column;
+            justify-content: center;  
         }
 
         h1 {
-            font-size: 4em;
-            margin: 10px 0;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            color: #00bfff;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
         }
 
-        p {
-            font-size: 1.2em;
-            margin: 10px 0;
+        .description {
+            font-size: 1.3em;
+            margin: 0 0 20px 0;
+            color: #b0c4de;
+            line-height: 1.5;
         }
 
-        .links {
-            margin: 20px 0;
+        .social-links {
             display: flex;
-            justify-content: left;
-            gap: 15px;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
         }
 
-        .links a {
+        .social-links a {
             color: #00bfff;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.5em;
+            font-size: 1.2em;
             display: inline-flex;
-            align-items: left;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .links a i {
+        .social-links a i {
             font-size: 1.2em;
             margin-right: 8px;
         }
 
-        .links a:hover {
-            text-decoration: underline;
+        .social-links a:hover {
+            background-color: rgba(0, 191, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .affiliations {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #00bfff;
+        }
+
+        .affiliations h3 {
+            font-size: 1.8em;
+            color: #00bfff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .affiliations ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .affiliations li {
+            background-color: rgba(0, 191, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00bfff;
+            transition: transform 0.3s ease;
+        }
+
+        .affiliations li:hover {
+            transform: translateX(5px);
+            background-color: rgba(0, 191, 255, 0.2);
+        }
+
+        .visitor-count {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #b0c4de;
         }
 
         .footer {
             font-size: 0.9em;
             color: #b0c4de;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
-        /* Footer Logos */
-        .footer-logos {
-            display: flex;
-            justify-content: left;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .footer-logo {
-            width: 175px;
-            height: 175px;
-            object-fit: contain;
+        .footer p {
+            line-height: 1.6;
+            text-align: center;
         }
 
         .footer a {
@@ -127,108 +173,23 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-                text-align: center; 
-            }
-
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 10px;
-                margin-top: 25px;
-            }
-
-            .description {
-                font-size: 0.9em;
-                text-align: center; 
-            }
-
-            .links a {
-                font-size: 1.2em;
-                margin: 0 10px;
-            }
-
-            .footer-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .footer-logos {
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .footer {
-                font-size: 1em;
-                text-align: center; 
-            }
-
-            .container {
-                padding: 10px;
-            }
-
-            .header {
-                justify-content: center; 
-                text-align: center; 
-            }
-
-            .links {
-                display: flex;
-                justify-content: center; 
-                gap: 15px; 
-                margin: 20px 0;
-            }
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-                text-align: center;
-            }
+        .footer-logo {
+            width: 175px;
+            height: 175px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
 
-            .profile-pic {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 10px;
-            }
-
-            .description {
-                font-size: 1em;
-                text-align: center; 
-            }
-
-            .links a {
-                font-size: 1em;
-                margin: 0 8px;
-            }
-
-            .footer-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .footer p {
-                margin: 0px;
-            }
-
-            .footer {
-                font-size: 0.8em;
-                text-align: center; 
-            }
-
-            .header {
-                justify-content: center; 
-                text-align: center; 
-            }
-
-            .links {
-                display: flex;
-                justify-content: center; 
-                gap: 10px; 
-                margin: 20px 0;
-            }
+        .footer-logo:hover {
+            transform: scale(1.05);
         }
 
         .landing-page {
@@ -237,29 +198,27 @@
             justify-content: center;
             align-items: center; 
             text-align: left;
-            margin: 100px auto;
-            padding: 20px;
+            margin: 60px auto;
+            padding: 30px;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 90%; 
-            width: 90%; 
             max-width: 1000px;
+            border-top: 2px solid #00bfff;
+            border-bottom: 2px solid #00bfff;
         }
-
 
         .landing-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
         }
 
         .landing-image img {
             width: 200px;
             height: 200px;
-            padding: 20px;
             object-fit: contain;
             border-radius: 50%;
             box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
@@ -274,17 +233,17 @@
             max-width: 600px;
         }
 
-
         .landing-text h2 {
             font-size: 2.5em;
             color: #00bfff;
             margin-bottom: 15px;
         }
 
-        .landing-text li{
-            font-size: medium;
+        .landing-text li {
+            font-size: 1em;
             color: #b0c4de;
             margin-bottom: 15px;
+            line-height: 1.5;
         }
 
         .landing-text p {
@@ -293,96 +252,23 @@
             line-height: 1.6em;
         }
 
-        @media (max-width: 768px) {
-            .landing-page {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px; 
-            }
-
-            .landing-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .landing-image img {
-                width: 150px; 
-                height: 150px;
-                margin-bottom: 15px;
-            }
-
-            .landing-text h2 {
-                font-size: 1.8em; 
-                margin-bottom: 10px;
-            }
-
-            .landing-text p {
-                font-size: 1em; 
-                line-height: 1.4em;
-            }
-
-            .landing-text li {
-                font-size: 0.9em;
-            }
-
-            .learn-more-btn {
-                font-size: 1em;
-                padding: 8px 16px;
-                margin-top: 15px; 
-            }
-        }
-
-        @media (max-width: 480px) {
-            .landing-page {
-                padding: 10px;
-            }
-
-            .landing-image img {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 10px;
-            }
-
-            .landing-text h2 {
-                font-size: 1.5em;
-                margin-bottom: 8px;
-            }
-
-            .landing-text p {
-                font-size: 0.9em;
-                line-height: 1.3em;
-            }
-
-            .landing-text li {
-                font-size: 0.8em;
-            }
-
-            .learn-more-btn {
-                font-size: 0.9em;
-                padding: 6px 12px;
-            }
-        }
-
-
         .learn-more-btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: transparent;
+            padding: 12px 25px;
+            background-color: rgba(0, 191, 255, 0.2);
             font-size: 1.2em;
             font-weight: bold;
-            text-align: center;
-            align-items: center;
             text-decoration: none;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 191, 255, 0.5);
             transition: all 0.3s ease-in-out;
-            border: white; 
-            color: white; 
+            border: 1px solid #00bfff;
+            color: white;
         }
 
         .learn-more-btn:hover {
-            color: white; 
+            background-color: rgba(0, 191, 255, 0.4);
             box-shadow: 0 6px 12px rgba(0, 139, 191, 0.7);
             transform: translateY(-2px);
         }
@@ -391,48 +277,142 @@
             transform: translateY(0);
             box-shadow: 0 3px 6px rgba(0, 139, 191, 0.5);
         }
-        
+
+        @media (max-width: 768px) {
+            .header-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-text {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .description {
+                font-size: 1.1em;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+
+            .affiliations ul {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-page {
+                padding: 20px;
+                margin: 40px auto;
+            }
+
+            .landing-image img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .landing-text h2 {
+                font-size: 1.8em;
+            }
+
+            .footer-logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .description {
+                font-size: 1em;
+            }
+
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .landing-text h2 {
+                font-size: 1.5em;
+            }
+
+            .landing-text p, .landing-text li {
+                font-size: 0.9em;
+            }
+
+            .learn-more-btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .footer-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- The rest of your HTML content goes here -->
-        <div class="header">
-            <div class="profile-pic" style="background-image: url('images/profile-pic.jpg');"></div>
+        <!-- Header Section with Profile -->
+        <div class="header-section">
+            <div class="profile-section">
+                <div class="profile-pic" style="background-image: url('images/profile-pic.jpg');"></div>
+            </div>
+            <div class="profile-text">
+                <h1>Lady Diane Casilang</h1>
+                <p class="description">Aspiring Full Stack Developer with a passion for learning and adapting to new tech.</p>
+            </div>
         </div>
 
-        <!-- Placeholder for your name -->
-        <h1>Lady Diane Casilang</h1>
-        <p class="description">Aspiring Full Stack Developer with a passion for learning and adapting to new tech.</p>
-        <h3>About Me:</h3>
-
-        <!-- Placeholder for About Me Section -->
-        <div class="about-me">
-            <h3>Organization Affiliations:</h3>
-            <ul>
-                <li>DEVCON Manila Chapter Co-Head of Creatives | 2025 - Present </li>
-                <li>AWSUG BuildHers+ Philippines Layout Artist  | 2025 - Present </li>
-                <li>JPCS-FEU Tech Head of Creatives| 2022 - Present</li>
-                <li>ASTI-FEU Tech Head of Creatives | 2024 - Present</li>
-                <li>The Junior Advocate Head Layout Artist | 2021 - 2022</li>
-            </ul>
-        </div>
-
-        <!-- Centered Links -->
-        <div class="links">
+        <!-- Social Links -->
+        <div class="social-links">
             <a href="https://www.linkedin.com/in/ldcasilang/"><i class="fab fa-linkedin"></i>LinkedIn</a>
             <a href="https://github.com/ldcasilang"><i class="fab fa-github"></i>GitHub</a>
             <a href="https://www.facebook.com/ledidayan/"><i class="fab fa-facebook"></i>Facebook</a>
         </div>
 
+        <!-- Affiliations Section -->
+        <div class="affiliations">
+            <h3>Organization Affiliations</h3>
+            <ul>
+                <li>DEVCON Manila Chapter Co-Head of Creatives | 2025 - Present</li>
+                <li>AWSUG BuildHers+ Philippines Layout Artist | 2025 - Present</li>
+                <li>JPCS-FEU Tech Head of Creatives | 2022 - Present</li>
+                <li>ASTI-FEU Tech Head of Creatives | 2024 - Present</li>
+                <li>The Junior Advocate Head Layout Artist | 2021 - 2022</li>
+            </ul>
+        </div>
+
+        <!-- Visitor Count -->
         <div class="visitor-count">
             <p>Visitor count: </p>
         </div>
         
-
         <!-- Footer Section -->
         <div class="footer">
-            <p>Portfolio published during the Smart Contracts Code Camp by <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Mindanao Codecamps, University of Science and Technology of Southern philippines.<br><br>
+            <p>Portfolio published during the Smart Contracts Code Camp by <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Mindanao Codecamps, University of Science and Technology of Southern Philippines.<br><br>
             ICP offers a groundbreaking platform for building smart contract projects using your existing expertise in ExpressJS, NextJS, and SQLite.<br>
             This innovative approach leverages canister technology, a new paradigm for smart contracts, to empower developers to create next-generation<br>
             applications. Explore the future of blockchain development with ICP. Visit <a href="https://islacamp.ph/">https://islacamp.ph/</a> to learn more!</p>
@@ -459,8 +439,6 @@
                 </div>
             </div>
             
-
-            
             <div class="footer-logos">
                 <img src="images/devcon-logo.png" alt="DEVCON Logo" class="footer-logo">
                 <img src="images/icp-logo.png" alt="ICP Logo" class="footer-logo">
@@ -469,4 +447,3 @@
     </div>
 </body>
 </html>
-
